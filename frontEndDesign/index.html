@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form method="post" action="/login">
+      <label>Email:</label>
+      <input type="email" name="email" required /><br /><br />
+      <label>Password:</label>
+      <input type="password" name="password" required /><br /><br />
+      <label>Role:</label>
+      <select name="role">
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+        <option value="admin">Admin</option></select
+      ><br /><br />
+      <input type="submit" value="Login" />
+    </form>
+  </body>
+</html>

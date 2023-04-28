@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>My Courses</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Course ID</th>
+          <th>Course Name</th>
+          <th>Course Schedule</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>101</td>
+          <td>Introduction to Programming</td>
+          <td>Mon/Wed 10:00am-11:30am</td>
+          <td>
+            <button class="show-students-101">Show Students</button>
+          </td>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>Data Structures and Algorithms</td>
+          <td>Tue/Thu 1:00pm-2:30pm</td>
+          <td>
+            <button class="show-students-201">Show Students</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h1 style="display: none" class="student-list-101">
+      Student List for Course 101
+    </h1>
+    <table style="display: none" class="student-table-101">
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+          <th>Email Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>John Doe</td>
+          <td>john.doe@example.com</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Jane Smith</td>
+          <td>jane.smith@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h1 style="display: none" class="student-list-201">
+      Student List for Course 201
+    </h1>
+    <table style="display: none" class="student-table-201">
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+          <th>Email Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>003</td>
+          <td>Mike Johnson</td>
+          <td>mike.johnson@example.com</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>Sara Lee</td>
+          <td>sara.lee@example.com</td>
+        </tr>
+        <tr>
+          <td>005</td>
+          <td>David Kim</td>
+          <td>david.kim@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      // Add event listeners to show/hide student tables
+      var showStudents101Button = document.querySelector(".show-students-101");
+      var studentList101 = document.querySelector(".student-list-101");
+      var studentTable101 = document.querySelector(".student-table-101");
+      showStudents101Button.addEventListener("click", function () {
+        if (studentTable101.style.display === "none") {
+          studentTable101.style.display = "table";
+          studentList101.style.display = "block";
+        } else {
+          studentTable101.style.display = "none";
+          studentList101.style.display = "none";
+        }
+      });
+
+      var showStudents201Button = document.querySelector(".show-students-201");
+      var studentList201 = document.querySelector(".student-list-201");
+      var studentTable201 = document.querySelector(".student-table-201");
+      showStudents201Button.addEventListener("click", function () {
+        if (studentTable201.style.display === "none") {
+          studentTable201.style.display = "table";
+          studentList201.style.display = "block";
+        } else {
+          studentTable201.style.display = "none";
+          studentList201.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
