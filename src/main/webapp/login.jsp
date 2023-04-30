@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-      <form method="post">
+      <form method="post"> 
   <label for="username">Username:</label>
   <input type="text" name="uname" required>
   <br><br>

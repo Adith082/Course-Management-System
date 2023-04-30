@@ -1,6 +1,8 @@
 package com.login;
 import com.login.dao.*;
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +23,8 @@ public class AdminLogin extends HttpServlet {
 		    if(dao.check(uname, pass,"admin")) {
 		    	HttpSession session =  request.getSession();
 		    	session.setAttribute("username", uname);
-		    	response.sendRedirect("admin.jsp");
+		    	RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
+				rd.forward(request, response);
 		    } else {
 		    	response.sendRedirect("login.jsp");
 		    }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+  <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,16 @@
      
      
   <h1>This is teacher page</h1>
+   <h1>HELLO <% out.print(session.getAttribute("username")); %></h1> <br>
+   <h1> REGISTERED COURSES </h1> <br>
+   <h2> <%
+   
+   ArrayList <String> courseCodes = (ArrayList<String>)request.getAttribute("courseCodes");
+   for (int i = 0; i < courseCodes.size(); i++) {
+       out.println(courseCodes.get(i) + "<br>");
+   }
+      
+   %></h2>
    <form action="Logout" >
   <input type="submit" value="logout">
   </form>
