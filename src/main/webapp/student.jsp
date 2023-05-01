@@ -19,6 +19,29 @@
      
      %>
    <h1>HELLO <% out.print(session.getAttribute("username")); %></h1> <br>
+   
+
+      <h1>Course Registration Form</h1>
+	<form action="Student" method="post">
+		<label for="fullname">Full Name:</label>
+		<input type="text" id="fullname" name="fullname"><br><br>
+		
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+		
+		<label for="registration">Registration:</label>
+		<input type="text" id="registration" name="registration"><br><br>
+		
+		<label for="coursecode">Course Code:</label>
+		<input type="text" id="coursecode" name="coursecode"><br><br>
+		
+		<input type="submit" value="Submit">
+	</form>
+
+
+   
+   
+   
    <h1> REGISTERED COURSES </h1> <br>
    <h2> <%
    

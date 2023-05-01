@@ -28,6 +28,18 @@
   	<description></description>
   	<servlet-class>com.login.Logout</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Student</servlet-name>
+  	<display-name>Student</display-name>
+  	<description></description>
+  	<servlet-class>com.login.Student</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Admin</servlet-name>
+  	<display-name>Admin</display-name>
+  	<description></description>
+  	<servlet-class>com.login.Admin</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AdminLogin</servlet-name>
   	<url-pattern>/AdminLogin</url-pattern>
@@ -43,5 +55,13 @@
   <servlet-mapping>
   	<servlet-name>Logout</servlet-name>
   	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Student</servlet-name>
+  	<url-pattern>/Student</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Admin</servlet-name>
+  	<url-pattern>/Admin</url-pattern>
   </servlet-mapping>
 </web-app>

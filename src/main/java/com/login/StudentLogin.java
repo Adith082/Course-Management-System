@@ -18,7 +18,7 @@ import com.login.dao.LoginDao;
 public class StudentLogin extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uname = request.getParameter("uname");
+		 String uname = request.getParameter("uname");
 		 String pass = request.getParameter("pass");
 		 String studentEmail;
 		 ArrayList<String> courseCodes;
@@ -26,7 +26,7 @@ public class StudentLogin extends HttpServlet {
 		    if(dao.check(uname, pass,"student")) {
 		    	
 		    	
-		    	studentEmail = dao.getInfoUser(uname, "student");
+		    	studentEmail = dao.getEmailOfUser(uname, "student");
 		    	courseCodes = dao.getRegisteredCourses(studentEmail, "student_registered");
 		    	
 		    	

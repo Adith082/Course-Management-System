@@ -25,7 +25,7 @@ public class TeacherLogin extends HttpServlet {
 		 LoginDao dao = new LoginDao();
 		    if(dao.check(uname, pass,"teacher")) {
 		    	
-		     	teacherEmail = dao.getInfoUser(uname, "teacher");
+		     	teacherEmail = dao.getEmailOfUser(uname, "teacher");
 		    	courseCodes = dao.getRegisteredCourses(teacherEmail, "teacher_registered");
 		    	
 		    	

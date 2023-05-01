@@ -32,9 +32,9 @@ public class LoginDao {
 		   return false;
 	   }
 	   
-	   public String getInfoUser(String username,String tableName) {
+	   public String getEmailOfUser(String username,String tableName) {
 		  
-		   String studentEmail="";
+		   String email="";
 		   try {
 			   
 		   Class.forName("com.mysql.jdbc.Driver");
@@ -46,15 +46,42 @@ public class LoginDao {
 	       
 	       
 	       if(rs.next()) {
-	    	   studentEmail = rs.getString("email");
+	    	   email = rs.getString("email");
 	       }
 	       st.close();
 	        con.close();
 		   } catch(Exception e) {
 			   e.printStackTrace();
 		   }
-		   return studentEmail;
+		   return email;
 	   }
+	   
+	   public String getRegistrationOfStudent(String username) {
+		   String registration="";
+		   
+		   try {
+			   
+			   Class.forName("com.mysql.jdbc.Driver");
+			   Connection con = DriverManager.getConnection(dburl,dbusername,dbpassword);
+			   String query = "select email from student where username=?";
+		       PreparedStatement st = con.prepareStatement(query);
+		       st.setString(1, username);
+		       ResultSet rs = st.executeQuery();
+		       
+		       
+		       if(rs.next()) {
+		    	   registration = rs.getString("registration");
+		       }
+		       st.close();
+		        con.close();
+			   } catch(Exception e) {
+				   e.printStackTrace();
+			   }
+		   
+		   
+		   return registration;
+	   }
+	     
 	   
 	   
 	   public ArrayList<String> getRegisteredCourses(String email,String tableName) {
@@ -108,6 +135,59 @@ public class LoginDao {
 		   return studentInfos;
 	   }
 	   
+	   
+	   
+	   
+	   
+	   public void insertRegisteredCourseOfStudent(String fullname,String email,String registration,String courseCode) {
+		   
+		   try {
+		   
+		   Class.forName("com.mysql.jdbc.Driver");
+		   Connection con = DriverManager.getConnection(dburl,dbusername,dbpassword);
+		   String query = "insert into student_registered values (?,?,?,?)";
+	       PreparedStatement st = con.prepareStatement(query);
+	       st.setString(1, fullname);
+	       st.setString(2, email);
+	       st.setString(3, registration);
+	       st.setString(4, courseCode);
+	       int count = st.executeUpdate();
+	       System.out.println(count + "rows affected");
+	       
+	        st.close();
+	        con.close();
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   }
+		   
+		   
+	   }
+	   
+	   
+	   
+	   
+ public void insertRegisteredCourseOfTeacher(String fullname,String email,String courseCode) {
+		   
+		   try {
+		   
+		   Class.forName("com.mysql.jdbc.Driver");
+		   Connection con = DriverManager.getConnection(dburl,dbusername,dbpassword);
+		   String query = "insert into teacher_registered values (?,?,?)";
+	       PreparedStatement st = con.prepareStatement(query);
+	       st.setString(1, fullname);
+	       st.setString(2, email);
+	       st.setString(3, courseCode);
+	       int count = st.executeUpdate();
+	       System.out.println(count + "rows affected");
+	       
+	        st.close();
+	        con.close();
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   }
+		   
+		   
+	   }
 	   
 	   
 	   
