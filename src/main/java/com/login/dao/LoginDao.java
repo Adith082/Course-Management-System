@@ -189,6 +189,61 @@ public class LoginDao {
 		   
 	   }
 	   
+ 
+ 
+ 
+ ///ONLY COURSE RELATED STUFF
+
+ public ArrayList<Course> coursesInfo(){
+	 
+	 ArrayList<Course> courseList = new ArrayList<Course>();
+	 try {
+		   
+		   Class.forName("com.mysql.jdbc.Driver");
+		   Connection con = DriverManager.getConnection(dburl,dbusername,dbpassword);
+		   String query = "select * from courses";
+	       PreparedStatement st = con.prepareStatement(query);
+	       ResultSet rs = st.executeQuery();
+	       
+	       while(rs.next()) {
+	    	   Course c = new Course();            
+	    	   c.setCourseCode(rs.getString("coursecode"));
+	    	   c.setCourseName(rs.getString("coursename"));
+	    	   courseList.add(c);
+	       }
+	       
+	        st.close();
+	        con.close();
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   }
+     
+	   return courseList;
+	 
+ }
+ public String getCourseName(String courseCode) {
+	 
+	  String courseName = "";
+	 
+	 try {	   
+		   Class.forName("com.mysql.jdbc.Driver");
+		   Connection con = DriverManager.getConnection(dburl,dbusername,dbpassword);
+		   String query = "select coursename from courses where coursecode=?";
+	       PreparedStatement st = con.prepareStatement(query);
+	       st.setString(1, courseCode);
+	       ResultSet rs = st.executeQuery();
+	       
+	       if(rs.next()) {
+	    	   courseName = rs.getString("coursename");
+	       }
+	       st.close();
+	        con.close();
+		   } catch(Exception e) {
+			   e.printStackTrace();
+		   }
+	 return courseName;
+	   
+ }
 	   
 	   
 	   
