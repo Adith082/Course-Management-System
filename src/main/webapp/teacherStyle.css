@@ -1,21 +1,82 @@
+/* Style the table */
+
+
+table {
+  border-collapse: collapse; /* Remove space between cells */
+  width: 80%; /* Set the table width */
+  margin: 0 auto; /* Center the table */
+}
+
+th, td {
+  text-align: left; /* Align text to left */
+  padding: 8px; /* Add padding */
+}
+
+th {
+  background-color: #4CAF50; /* Set the header background color */
+  color: white; /* Set the header text color */
+}
+
+/* Set the alternate row background color */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Set the table border */
+table, th, td {
+  border: 1px solid #ddd;
+}
+
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #007bff;
-  color: #fff;
+  background-color: blue;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 60px;
-  padding: 0 20px;
-  margin: 0;
 }
 
+.navbarleft {
+  float: left;
+}
 
-
-.navbar-left h1 {
-  margin: 0;
+.navbarleft h1 {
+  color: white;
   font-size: 24px;
+  margin: 0;
+  padding: 10px;
 }
 
-.navbar-right form {
-  margin: 0;
+.navbarright {
+  float: right;
+}
+
+.navbarright form {
+  display: inline-block;
+  margin: 10px;
+}
+.teacherheader {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.navbarright input[type="submit"] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.navbarright input[type="submit"]:hover {
+  background-color: #3e8e41;
 }

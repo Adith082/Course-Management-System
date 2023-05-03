@@ -63,7 +63,7 @@ public class LoginDao {
 			   
 			   Class.forName("com.mysql.jdbc.Driver");
 			   Connection con = DriverManager.getConnection(dburl,dbusername,dbpassword);
-			   String query = "select email from student where username=?";
+			   String query = "select registration from student where username=?";
 		       PreparedStatement st = con.prepareStatement(query);
 		       st.setString(1, username);
 		       ResultSet rs = st.executeQuery();
@@ -246,7 +246,31 @@ public class LoginDao {
  }
 	   
 	   
+ public void insertNewCourse(String coursecode,String coursename) {
 	   
+	   try {
+	   
+	   Class.forName("com.mysql.jdbc.Driver");
+	   Connection con = DriverManager.getConnection(dburl,dbusername,dbpassword);
+	   String query = "insert into courses values (?,?)";
+     PreparedStatement st = con.prepareStatement(query);
+     st.setString(1, coursecode);
+     st.setString(2, coursename);
+     int count = st.executeUpdate();
+     System.out.println(count + "rows affected");
+     
+      st.close();
+      con.close();
+	   } catch(Exception e) {
+		   e.printStackTrace();
+	   }
+	   
+	   
+ }
+ 
+ 
+ 
+ 
 	   
 	   
 	   

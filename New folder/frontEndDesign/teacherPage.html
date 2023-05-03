@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teacher Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="teacherPage">
+    <div class="studentInfoDiv">
+      <p class="courseHeading">Teacher Dashboard</p>
+    </div>
+    <div class="courseDiv">
+      <p class="stuInfoHead">My Courses</p>
+      <table class="teacherTable courseTable table bg-white table-hover">
+        <thead class="bg-light">
+          <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Course Type</th>
+            <th>Session</th>
+            <th>Course Schedule</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CSE101</td>
+            <td>Introduction to Programming</td>
+            <td>Theory</td>
+            <td>2018-19</td>
+            <td>Mon/Wed 10:00am-11:30am</td>
+            <td>
+              <button class="show-students-101">Show Students</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSE201</td>
+            <td>Data Structures and Algorithms</td>
+            <td>Lab</td>
+            <td>2019-2020</td>
+            <td>Tue/Thu 1:00pm-2:30pm</td>
+            <td>
+              <button class="show-students-201">Show Students</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="courseDiv">
+      <p style="display: none" class="student-list-101 stuInfoHead">
+        Student List for Course CSE101
+      </p>
+      <table
+        style="display: none"
+        class="student-table-101 teacherTable courseTable table bg-white table-hover"
+      >
+        <thead class="bg-light">
+          <tr>
+            <th>Reg. No.</th>
+            <th>Student Name</th>
+            <th>Email Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2018331064</td>
+            <td>Mahir Mosleh</td>
+            <td>mahir64@student.sust.edu</td>
+          </tr>
+          <tr>
+            <td>2018331001</td>
+            <td>John Smith</td>
+            <td>jane.smith@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="courseDiv">
+      <p style="display: none" class="student-list-201 stuInfoHead">
+        Student List for Course CSE201
+      </p>
+      <table
+        style="display: none"
+        class="student-table-201 teacherTable courseTable table bg-white table-hover"
+      >
+        <thead class="bg-light">
+          <tr>
+            <th>Reg. No.</th>
+            <th>Student Name</th>
+            <th>Email Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>003</td>
+            <td>Mike Johnson</td>
+            <td>mike.johnson@example.com</td>
+          </tr>
+          <tr>
+            <td>004</td>
+            <td>Sara Lee</td>
+            <td>sara.lee@example.com</td>
+          </tr>
+          <tr>
+            <td>005</td>
+            <td>David Kim</td>
+            <td>david.kim@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer"></div>
+
+    <script>
+      // Add event listeners to show/hide student tables
+      var showStudents101Button = document.querySelector(".show-students-101");
+      var studentList101 = document.querySelector(".student-list-101");
+      var studentTable101 = document.querySelector(".student-table-101");
+      showStudents101Button.addEventListener("click", function () {
+        if (studentTable101.style.display === "none") {
+          studentTable101.style.display = "table";
+          studentList101.style.display = "block";
+        } else {
+          studentTable101.style.display = "none";
+          studentList101.style.display = "none";
+        }
+      });
+
+      var showStudents201Button = document.querySelector(".show-students-201");
+      var studentList201 = document.querySelector(".student-list-201");
+      var studentTable201 = document.querySelector(".student-table-201");
+      showStudents201Button.addEventListener("click", function () {
+        if (studentTable201.style.display === "none") {
+          studentTable201.style.display = "table";
+          studentList201.style.display = "block";
+        } else {
+          studentTable201.style.display = "none";
+          studentList201.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
