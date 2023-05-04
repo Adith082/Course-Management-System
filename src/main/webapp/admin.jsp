@@ -22,14 +22,22 @@
       <link rel="stylesheet" href="adminStyle.css" />
 </head>
 <body>
-  <div class="studentInfoDiv">
+    <div class="studentInfoDiv">
       <p class="courseHeading">Admin Dashboard</p>
-    
-    <form action="Logout">
-      <input type="submit" value="Logout">
-    </form>
+      
+      
+      
+      
+      
+    <form action="Logout" id="loggingout" style="border-color:transparent;background-color:transparent;display:block;position: absolute; top: 0px; right: 0px; ">
+    <input action="Logout" type="submit" value="Logout" style="background-color: #4CAF50; width: 300px; color: white; padding: 1px 2px; border: none; border-radius: 8px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3); cursor: pointer;">
+   </form>
+   
+  
   
     </div>
+   
+    
      
       <%
      response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");  //http1.1
@@ -40,58 +48,61 @@
         }
      
      %>
-      
-       <h1> All Currently Available Courses</h1>
-        <% ArrayList<Course> coursesInfo = (ArrayList<Course>)session.getAttribute("coursesInfo");
+     
+     
+     
+     
+   <% ArrayList<Course> coursesInfo = (ArrayList<Course>)session.getAttribute("coursesInfo"); %>  
   
-      // for (int i = 0; i < courseCodes.size(); i++) {
-        //   out.println(courseCodes.get(i) + " " + courseNames.get(i) + "<br>");
-       //}
-    %>
-    <table>
-    <thead>
+  <p class="stuInfoHead" style="font-weight: bold; color: #000000; text-align: center;">Currently Available Courses</p>
+
+
+<table class="courseTable table align-middle mb-0 bg-white table-hover" style="border-collapse: collapse; width: 50%; margin: 0 auto; border: 1px solid #ddd; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+  <thead class="bg-light" style="background-color: #f1f1f1;">
+    <tr>
+      <th style="padding: 10px; border: 1px solid #ddd;">Course Code</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Course Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (int i = 0; i < coursesInfo.size(); i++) { %>
       <tr>
-        <th>Course Code</th>
-        <th>Course Name</th>
+        <td style="padding: 10px; border: 1px solid #ddd;"><%= coursesInfo.get(i).getCourseCode() %></td>
+        <td style="padding: 10px; border: 1px solid #ddd;"><%= coursesInfo.get(i).getCourseName() %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% for (int i = 0; i < coursesInfo.size(); i++) { %>
-        <tr>
-          <td><%= coursesInfo.get(i).getCourseCode() %></td>
-          <td><%= coursesInfo.get(i).getCourseName() %></td>
-        </tr>
-      <% } %>
-    </tbody>
-  </table>
-       
-        <h1>Add New Course to the System </h1>
-	<form method="get" action="Admin">
-  <label for="coursecode">Course Code:</label>
-  <input type="text" id="coursecode" name="coursecode"><br>
+    <% } %>
+  </tbody>
+</table>
   
-  <label for="coursename">Course Name:</label>
-  <input type="text" id="coursename" name="coursename"><br>
   
-  <input type="submit" value="Submit">
-</form>
-	
-       
-       
-       <h1> Assign Teacher to a particular course</h1>
-	<form action="Admin" method="post">
-		<label for="fullname">Teacher's Name:</label>
-		<input type="text" id="fullname" name="fullname"><br><br>
-		
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email"><br><br>
-		
-		<label for="coursecode">Course Code:</label>
-		<input type="text" id="coursecode" name="coursecode"><br><br>
-		
-		<input type="submit" value="Submit">
-	</form> 
-       
+  
+  <div style="display: flex; justify-content: center; margin-top:40px">
+  <div style="width: 50%; margin-right: 10px;">
+    <h5 style=" font-weight: bold; color: #000000;   text-align: center;">Add New Course to the System</h1>
+    <form method="get" action="Admin" style="box-shadow: 0px 0px 5px rgba(0,0,0,0.3);">
+      <label for="coursecode">Course Code:</label>
+      <input type="text" id="coursecode" name="coursecode"><br>
+      <label for="coursename">Course Name:</label>
+      <input type="text" id="coursename" name="coursename"><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  
+  <div style="width: 50%; margin-left: 10px; ">
+    <h5 style=" font-weight: bold; color: #000000;       text-align: center;">Assign Teacher to a particular course</h1>
+    <form action="Admin" method="post" style="box-shadow: 0px 0px 5px rgba(0,0,0,0.3);">
+      <label for="fullname">Teacher's Name:</label>
+      <input type="text" id="fullname" name="fullname"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="coursecode">Course Code:</label>
+      <input type="text" id="coursecode" name="coursecode"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+  
+  
         
         
        
