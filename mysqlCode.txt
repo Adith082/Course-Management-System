@@ -52,4 +52,30 @@ CREATE TABLE teacher_registered(
   email VARCHAR(255) NOT NULL,
   coursecode VARCHAR(255) NOT NULL
 );
+INSERT INTO teacher_registered (fullname, email,coursecode) VALUES 
+('jeremylang','jeremy@gmail.com','CSE310'),
+('austinroy','austing@gmail.com','CSE202'),
+('severus','severus@gmail.com','CSE107'),
+('severus','severus@gmail.com','CSE202');
+select * from teacher_registered;
+
+INSERT INTO student_registered (fullname, email,registration,coursecode) VALUES 
+('Md Adith Mollah','adibhasan35@gmail.com','2018331082','CSE107'),
+('Takrimul Hasan','takrim25@gmail.com','2018331025','CSE310');
+
+DROP table student_registered;
+
+
+select * from teacher_registered;
+CREATE TABLE courses(
+  coursecode VARCHAR(455) NOT NULL,
+  coursename VARCHAR(255) NOT NULL
+);
+INSERT INTO courses (coursecode,coursename) VALUES
+('CSE107','Intro to Programming'),
+('CSE202','Object Oriented Programming'),
+('CSE310','Digital Signal Processing');
+
+SELECT * FROM courses;
+select coursename from courses where coursecode='CSE107';
 
