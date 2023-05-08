@@ -1,7 +1,7 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<!-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="com.login.model.StudentInfo" %>
-  <%@ page import="java.util.ArrayList" %> 
+  <%@ page import="java.util.ArrayList" %> -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,7 +22,16 @@
     <link rel="stylesheet" href="teacherStyle.css" />
   </head>
   <body>
-      
+    <!--   <nav>
+  <div class="navbarleft">
+    <h1>Course Management System</h1>
+  </div>
+  <div class="navbarright">
+    <form action="Logout">
+      <input type="submit" value="Logout">
+    </form>
+  </div>
+</nav> -->
     <div
       class="studentInfoDiv"
       style="
@@ -52,7 +61,7 @@
         />
       </form>
     </div>
-     <%
+    <!-- <%
      response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");  //http1.1
      response.setHeader("Pragma","no-cache"); //http1.0
      response.setHeader("Expires","0"); //proxies 
@@ -60,23 +69,23 @@
         	response.sendRedirect("login.jsp");
         }
      
-     %> 
+     %> -->
 
     <div class="center">
-       <% ArrayList<String> courseCodes = (ArrayList<String>)request.getAttribute("courseCodes");
+      <!-- <% ArrayList<String> courseCodes = (ArrayList<String>)request.getAttribute("courseCodes");
        ArrayList<String> courseNames = (ArrayList<String>)request.getAttribute("courseNames");
       // for (int i = 0; i < courseCodes.size(); i++) {
         //   out.println(courseCodes.get(i) + " " + courseNames.get(i) + "<br>");
        //}
-    %> 
+    %> -->
 
       <div style="text-align: center">
         <p
           class="stuInfoHead"
           style="margin: 20px; font-weight: bold; color: black"
         >
-          
-           Assigned Courses for <%= session.getAttribute("username") %> 
+          Assigned Courses for TeacherName
+          <!-- Assigned Courses for <%= session.getAttribute("username") %> -->
         </p>
 
         <table
@@ -94,14 +103,20 @@
             </tr>
           </thead>
           <tbody>
-             <% for (int i = 0; i < courseCodes.size(); i++) { %> 
+            <!-- <% for (int i = 0; i < courseCodes.size(); i++) { %> -->
             <tr>
-              
-               <td style="padding: 10px; border: 1px solid #ddd;"><%= courseCodes.get(i) %></td> 
-               <td style="padding: 10px; border: 1px solid #ddd;"><%= courseNames.get(i) %></td> 
+              <td>CSE101</td>
+              <td>Computer Science and Engineering</td>
+              <!-- <td style="padding: 10px; border: 1px solid #ddd;"><%= courseCodes.get(i) %></td> -->
+              <!-- <td style="padding: 10px; border: 1px solid #ddd;"><%= courseNames.get(i) %></td> -->
             </tr>
-           
-             <% } %> 
+            <tr>
+              <td>CSE101</td>
+              <td>Computer Science and Engineering</td>
+              <!-- <td style="padding: 10px; border: 1px solid #ddd;"><%= courseCodes.get(i) %></td> -->
+              <!-- <td style="padding: 10px; border: 1px solid #ddd;"><%= courseNames.get(i) %></td> -->
+            </tr>
+            <!-- <% } %> -->
           </tbody>
         </table>
 
@@ -191,16 +206,14 @@
           </button>
         </form>
 
-         
-       <%  ArrayList<StudentInfo> studentInfos = (ArrayList<StudentInfo>) request.getAttribute("studentInfos"); %>
-   
-    <% 
-    
-    if(request.getParameter("coursecode") != null) { %>
-        <div id="getStudentTable" style="display: block; margin: 40px">
+        <!-- <%
+ArrayList<StudentInfo> studentInfos = (ArrayList<StudentInfo>) request.getAttribute("studentInfos");
+%> -->
+
+        <div id="getStudentTable" style="display: none; margin: 40px">
           <p class="stuInfoHead">
-           
-             Students of <%= request.getParameter("coursecode") %> 
+            Students of CSE310
+            <!-- Students of <%= request.getParameter("coursecode") %> -->
           </p>
           <table
             class="courseTable table align-middle mb-0 bg-white table-hover"
@@ -223,20 +236,25 @@
               </tr>
             </thead>
             <tbody>
-               <% if (studentInfos != null && !studentInfos.isEmpty()) {%>
-    <% for (StudentInfo studentInfo : studentInfos) { %> 
-                <tr>
-                 <td style="padding: 10px; border: 1px solid #ddd;"><%= studentInfo.getFullname() %></td> 
-                 <td style="padding: 10px; border: 1px solid #ddd;"><%= studentInfo.getRegistration() %></td> 
+              <!-- <% if (studentInfos != null && !studentInfos.isEmpty()) {%>
+    <% for (StudentInfo studentInfo : studentInfos) { %> -->
+              <tr>
+                <td>Mahir Mosleh</td>
+                <td>2018331064</td>
               </tr>
-               <% } %> 
-               <%} %> 
+              <tr>
+                <td>Adith Mollah</td>
+                <td>2018331082</td>
+              </tr>
+              <tr>
+                <!-- <td style="padding: 10px; border: 1px solid #ddd;"><%= studentInfo.getFullname() %></td> -->
+                <!-- <td style="padding: 10px; border: 1px solid #ddd;"><%= studentInfo.getRegistration() %></td> -->
+              </tr>
+              <!-- <% } %> -->
+              <!-- <%} %> -->
             </tbody>
           </table>
         </div>
-        
-            <%} %>
-        
       </div>
     </div>
     <script>
