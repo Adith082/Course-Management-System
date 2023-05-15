@@ -191,6 +191,8 @@
     } else {
       addCourseForm.style.display = "none";
     }
+    addCourseForm.scrollIntoView({ behavior: 'smooth' });
+   // addCourseForm.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   });
   
   

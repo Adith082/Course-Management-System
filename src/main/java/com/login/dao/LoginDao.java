@@ -8,6 +8,7 @@ public class LoginDao {
 	   String dbusername="root";
 	   String dbpassword="35821";
 	   
+	   //Checking whether a particular type user (admin , student or teacher ) is an authenticated user or not
 	   public boolean check(String username,String password,String tableName) {
 		 
 		   try {
@@ -192,7 +193,16 @@ public class LoginDao {
  
  
  
- ///ONLY COURSE RELATED STUFF
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
  public ArrayList<Course> coursesInfo(){
 	 

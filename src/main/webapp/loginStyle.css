@@ -1,4 +1,4 @@
-/*
+/* Body */
 body {
   background-image: url("./images/backgroundImage_03.jpg");
   margin: 0;
@@ -7,7 +7,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: Arial, sans-serif;
-
+  font-family: "Ubuntu", sans-serif;
 }
 
 /* Navigation Bar */
@@ -17,7 +17,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 160px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -32,13 +32,13 @@ nav h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: calc(100vh - 60px);
+  /* height: calc(100vh - 60px); */
 }
 
 /* Login Form */
 form {
   border: 1px solid #ccc;
-  padding: 20px;
+  padding: 50px 40px;
   width: 400px;
   max-width: 100%;
   border-radius: 4px;

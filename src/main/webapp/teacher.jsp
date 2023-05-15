@@ -52,6 +52,7 @@
         />
       </form>
     </div>
+    <!--  Checking whether the session is null or not -->
      <%
      response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");  //http1.1
      response.setHeader("Pragma","no-cache"); //http1.0
@@ -248,16 +249,19 @@
         } else {
           addCourseForm.style.display = "none";
         }
+        addCourseForm.scrollIntoView({ behavior: 'smooth' });
       });
 
       var toggleButtonTwo = document.getElementById("toggleButtonTwo");
       var getStudentTable = document.getElementById("getStudentTable");
+      getStudentTable.scrollIntoView({ behavior: 'smooth' });
       toggleButtonTwo.addEventListener("click", function () {
         if (getStudentTable.style.display === "none") {
           getStudentTable.style.display = "block";
         } else {
           getStudentTable.style.display = "none";
         }
+        getStudentTable.scrollIntoView({ behavior: 'smooth' });
       });
     </script>
   </body>
